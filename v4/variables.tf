@@ -7,11 +7,7 @@ variable "resource_group" {
 variable "resource_location" {
   description = "Location of resources"
   type        = string
-}
-
-variable "deployment" {
-  description = "Deployment identifier"
-  type        = string
+  default     = "UK South"
 }
 
 variable "network_name" {
@@ -29,11 +25,13 @@ variable "subnet_name" {
 variable "vm_name" {
   description = "Name of vm"
   type        = string
+  default     = "VM"
 }
 
 variable "vm_size" {
   description = "Size of vm"
   type        = string
+  default     = "Standard_B1s"
 }
 
 variable "vm_disk_size" {
@@ -54,32 +52,10 @@ variable "vm_sku" {
   default     = "2019-Datacenter-smalldisk"
 }
 
-variable "vm_instance_count" {
-  description = "Number of vms to deploy"
-  type        = string
-}
-
-variable "vm_fault_domain" {
-  description = "Number of fault domains for VM"
-  type        = string
-  default     = 2
-}
-
-variable "platform_location_az" {
-  description = "Number of availability zones in the location"
-  type        = map(string)
-  default = {
-    "UK South"         = 3
-    "North Europe"     = 3
-    "West Europe"      = 3
-    "North Central US" = 0
-  }
-}
-
 variable "admin_username" {
   description = "Desired username for the provisioned resources"
   type        = string
-  default     = "chine"
+  default     = "Wesley"
 }
 
 variable "admin_password" {
@@ -98,4 +74,17 @@ variable "vm_environment" {
 variable "network_address" {
   description = "Network address space"
   type        = string
+  default     = "10.0.0.0/22"
+}
+
+variable "subnet_address" {
+  description = "Subnet prefix"
+  type        = string
+  default     = "10.0.0.0/24"
+}
+
+variable "vm_network_interface" {
+  description = "Name of vm ni"
+  type        = string
+  default     = "Production"
 }

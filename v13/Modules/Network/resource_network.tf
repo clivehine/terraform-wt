@@ -30,7 +30,6 @@ resource "azurerm_route" "udr_internet" {
 }
 
 resource "azurerm_subnet_route_table_association" "subnet_association" {
-  depends_on     = [azurerm_subnet.vm_subnet]
   subnet_id      = azurerm_subnet.vm_subnet.id
   route_table_id = azurerm_route_table.route_table.id
 }
@@ -42,8 +41,6 @@ resource "azurerm_network_security_group" "network_security_group" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "network_security_group_association" {
-  # Explicit dependency to prevent race condition of the route table being associated in parallel
-  depends_on                = [azurerm_subnet.vm_subnet]
   subnet_id                 = azurerm_subnet.vm_subnet.id
   network_security_group_id = azurerm_network_security_group.network_security_group.id
 }
