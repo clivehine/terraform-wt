@@ -1,7 +1,7 @@
 variable "resource_group" {
   description = "Name of resource group"
   type        = string
-  default     = "VirtualMachineGroup"
+  default     = "exampleRG"
 }
 
 variable "resource_location" {

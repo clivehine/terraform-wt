@@ -1,13 +1,13 @@
 variable "resource_group" {
   description = "Name of resource group"
   type        = string
-  default     = "VirtualMachineGroup"
+  default     = "exampleRG-bp"
 }
 
 variable "resource_location" {
   description = "Location of resources"
   type        = string
-  default     = "UK South"
+  default     = "West Europe"
 }
 
 variable "network_name" {
