@@ -41,3 +41,12 @@ variable "network_address" {
     "North Central US" = "10.2.0.0/22"
   }
 }
+
+variable "lb_services" {
+  description = "Services to run on lb"
+  type        = map(string)
+  default = {
+    "HTTPS"         = "443"
+    "HTTP"     = "80"
+  }
+}

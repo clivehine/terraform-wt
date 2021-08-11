@@ -39,6 +39,16 @@ variable "location_zone_support" {
   type        = bool
 }
 
+/* variable "lb_services" {
+  description = "All the lb services"
+  type        = string
+}
+
+variable "lb_svc" {
+  description = "Each lb service"
+  type        = string
+} */
+
 /*
 variable "ports" {
   description = "protocols and ports in pool in loadbalancer"

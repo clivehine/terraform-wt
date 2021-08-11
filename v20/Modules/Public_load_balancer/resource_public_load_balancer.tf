@@ -36,6 +36,29 @@ resource "azurerm_lb_backend_address_pool_address" "backend_address_pool_address
   ip_address              = cidrhost(var.network_address, 4 + count.index)
 }
 
+/* # Create health check availability probe for https
+resource "azurerm_lb_probe" "probe" {
+  resource_group_name = var.resource_group_name
+  loadbalancer_id     = azurerm_lb.load_balancer.id
+  name                = var.lb_services
+  port                = var.lb_svc
+# request_path        = "/"
+}
+
+# Create load balance rule for probe
+resource "azurerm_lb_rule" "lb_rules" {
+  resource_group_name            = var.resource_group_name
+  loadbalancer_id                = azurerm_lb.load_balancer.id
+  name                           = azurerm_lb_probe.probe.name
+  protocol                       = "Tcp"
+  frontend_port                  = azurerm_lb_probe.probe.port
+  backend_port                   = azurerm_lb_probe.probe.port
+  frontend_ip_configuration_name = azurerm_public_ip.public_ip.name
+  probe_id                       = azurerm_lb_probe.probe.id
+  backend_address_pool_id        = azurerm_lb_backend_address_pool.backend_address_pool.id
+} */
+
+
 # Create health check availability probe for https
 resource "azurerm_lb_probe" "https_probe" {
   resource_group_name = var.resource_group_name
@@ -58,7 +81,7 @@ resource "azurerm_lb_rule" "lb_rule_https" {
   backend_address_pool_id        = azurerm_lb_backend_address_pool.backend_address_pool.id
 }
 
-# Create health check availability probe for http
+/* # Create health check availability probe for http
 resource "azurerm_lb_probe" "http_probe" {
   resource_group_name = var.resource_group_name
   loadbalancer_id     = azurerm_lb.load_balancer.id
@@ -78,4 +101,4 @@ resource "azurerm_lb_rule" "lb_rule_http" {
   frontend_ip_configuration_name = azurerm_public_ip.public_ip.name
   probe_id                       = azurerm_lb_probe.http_probe.id
   backend_address_pool_id        = azurerm_lb_backend_address_pool.backend_address_pool.id
-}
+} */

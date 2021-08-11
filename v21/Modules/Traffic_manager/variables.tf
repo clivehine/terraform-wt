@@ -5,16 +5,6 @@ variable "resource_group" {
   default     = "VirtualMachineGroup"
 }
 
-variable "traffic_manager_endpoint_locations" {
-  description = "Traffic manager endpoint locations"
-  type        = list(string)
-}
-
-variable "traffic_manager_endpoint_public_ips" {
-  description = "Traffic manager endpoint public ips"
-  type        = any
-}
-
 variable "traffic_manager_name" {
   description = "Traffic manager name"
   type        = string

@@ -9,4 +9,6 @@ module "public_load_balancer" {
   location_zone_support = local.platform_location_az_count > 1 ? true : false
   vm_network_id         = module.vm_network.network_id
   network_address       = var.network_address
+/*   lb_services           = var.lb_services
+  lb_svc                = var.lb_svc */
 }

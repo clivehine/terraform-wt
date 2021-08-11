@@ -9,4 +9,6 @@ module "vm_deployment" {
   vm_data_disk_size  = var.vm_data_disk_size
   resource_location  = each.value
   network_address    = lookup(var.network_address, each.value, null)
+/*   lb_services        = each.value
+  lb_svc             = lookup(var.lb_services, each.value, null) */
 }

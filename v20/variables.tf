@@ -9,7 +9,7 @@ variable "resource_location" {
   type        = list(string)
   default = [
     "UK South",
-  # "North Central US"
+    # "North Central US"
   ]
 }
 
@@ -52,3 +52,16 @@ variable "vm_data_disk_size" {
   type        = number
   default     = 32
 }
+
+/* variable "lb_services" {
+  description = "services on lb"
+  type        = map(string)
+  default = {
+    "HTTPS" = "443"
+    "HTTP"  = "80"
+  }
+} */
+
+#variable "lb_svc" {
+#  description = "lb service placeholder"
+#}

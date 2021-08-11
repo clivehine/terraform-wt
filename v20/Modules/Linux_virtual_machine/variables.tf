@@ -106,3 +106,13 @@ variable "vm_data_disk_size" {
   type        = number
   default     = 0
 }
+
+/* variable "lb_services" {
+  description = "All the lb services"
+  type        = string
+}
+
+variable "lb_svc" {
+  description = "Each lb service"
+  type        = string
+} */

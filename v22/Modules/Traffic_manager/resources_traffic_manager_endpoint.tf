@@ -4,7 +4,7 @@ resource "azurerm_traffic_manager_endpoint" "traffic_manager_endpoint" {
   name                = "${replace(each.value, "/[a-z[:space:]]/", "")}-${var.vm_name}"
   resource_group_name = azurerm_resource_group.vm_group.name
   profile_name        = azurerm_traffic_manager_profile.traffic_manager_profile.name
-  target_resource_id  = var.traffic_manager_endpoint_public_ips[each.value].public_ip_id
+  target_resource_id  = var.traffic_manager_endpoints[each.value].public_ip_id
   type                = "azureEndpoints"
   weight              = 100
 }
