@@ -28,7 +28,7 @@ variable "vm_size" {
 variable "vm_instance_count" {
   description = "Number of vms to deploy"
   type        = string
-  default     = 2
+  default     = 1
 }
 
 variable "network_address" {

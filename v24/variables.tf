@@ -18,6 +18,7 @@ variable "recovery_services_location" {
   type        = list(string)
   default = [
     "UK South",
+   #"North Central US"
   ]
 }
 
